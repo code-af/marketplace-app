@@ -1,0 +1,93 @@
+.signup-container {
+    display: flex;
+    height: 100vh;
+}
+.signup-header{
+    width: 100%;
+    height: 85px;
+    display: flex;
+    
+}
+.signup-header img{
+    width: 100px;
+    height: 60px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.signup-header p {
+    color: #707070;
+    font-weight: 700;
+    position: absolute !important;
+    top: 25px;
+    right: 16px;
+    font-size: larger;
+    text-decoration: none;
+}
+.action-link{
+    color: black;
+    font-weight: normal;
+}
+.signup-image {
+    flex: 1;
+    overflow: hidden;
+}
+
+.signup-image img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.signup-form h1{
+    font-weight: 900;
+}
+.signup-form form {
+    width: 100%;
+    max-width: 400px;  /* controls form width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* spacing between inputs */
+}
+.signup-form input {
+    font-size: large;
+    font-weight: bolder;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.signup-form button {
+    font-weight: bolder;
+    font-size: large;
+    background-color: #0968f6;
+    color: white;
+    width: 105%;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.signup-form button:hover{
+    background-color: blue;
+}
+.signup-footer{
+    color: #707070;
+    font-size: small;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 25px;
+    padding: 5px;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+}
