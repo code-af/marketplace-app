@@ -2,8 +2,10 @@ import logo from '../../assets/ebuy-icon.png'
 import  './Signup.css'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebase/config'
+import {doc, setDoc} from 'firebase/firestore'
+import { auth,db } from '../../firebase/config'
 import { useNavigate } from 'react-router-dom'
+import firebase from 'firebase/compat/app'
 
 function Signup() {
     const [firstName, setFirstName] = useState('')
@@ -11,27 +13,30 @@ function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const [error, setError] = useState('')
+    const [successMsg, setSuccessMsg] = useState('')    
 
     const handleSignup = async (e) => {
     e.preventDefault()
-    try {
-        // 1. create auth account
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-        const user = userCredential.user
-
-        // 2. save additional details to Firestore
-        await setDoc(doc(db, 'users', user.uid), {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            uid: user.uid,
-            createdAt: new Date().toDateString()
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user
+            // save to Firestore
+            return setDoc(doc(db, 'users', user.uid), {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                uid: user.uid,
+                createdAt: new Date().toDateString()
+            })
         })
-
-        navigate('/')
-    } catch (error) {
-        console.log(error.message)
-        }
+        .then(() => {
+            setSuccessMsg("Account Created Successfully!")
+            setTimeout(() => navigate('/'), 1000)
+        })
+        .catch((error) => {
+            setError(error.message)
+        })
     }
 
     return ( <>
@@ -53,6 +58,10 @@ function Signup() {
                     <input type="text" value={lastName} placeholder="Last name" onChange={(e) => setLastName(e.target.value)} />
                     <input type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                     <input type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+
+                    {successMsg && <p className="success-msg">{successMsg}</p>}
+                    {error && <p className="error-msg">{error}</p>}
+                    
                     <button type="submit">Create account</button>
                 </form>
             </div>
