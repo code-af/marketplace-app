@@ -1,0 +1,100 @@
+.login-header{
+    width: 100%;
+    height: 85px;
+    display: flex;
+    
+}
+.login-header img{
+    width: 100px;
+    height: 60px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.create-btn{
+    float: right;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 550;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #111820;
+    background: #f7f7f7;
+    width: 138px;
+    height: 32px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #111820;
+    cursor: pointer;
+}
+.login-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+}
+.login-form h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.login-form h4{
+    margin-top: 10px;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.login-form form {
+    width: 100%;
+    max-width: 400px;  /* controls form width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* spacing between inputs */
+}
+.login-form input {
+    font-size: large;
+    font-weight: bolder;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.submit-btn {
+    font-weight: bolder;
+    font-size: large;
+    background-color: #0968f6;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+}
+.submit-btn:hover{
+    background-color: #0860e8;
+}
+.success-msg {
+    color: green;
+    font-size: 14px;
+}
+.error-msg {
+    color: red;
+    font-size: 14px;
+}
+.login-footer{
+    color: #707070;
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 25px;
+    padding: 5px;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+}
