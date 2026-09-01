@@ -24,7 +24,7 @@ function Login(){
     }
     return <>
         <div className="login-header">
-            <a href="/home"><img src={logo} alt="logo" /></a>
+            <a href="/"><img src={logo} alt="logo" /></a>
         </div>
         <div className="login-container">
             <div className="login-form">

@@ -41,7 +41,7 @@ function Signup() {
 
     return ( <>
         <div className='signup-header'>
-            <a href="/home"><img src={logo} alt="logo" /></a>
+            <a href="/"><img src={logo} alt="logo" /></a>
             <p>Already have an account? <a className="action-link" href="/login">Sign in</a></p>
         </div>
         <div className="signup-container">
