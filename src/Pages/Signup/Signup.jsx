@@ -52,7 +52,7 @@ function Signup() {
 
             {/* Right side - form */}
             <div className="signup-form">
-                <h1>Create account</h1>
+                <h1>Create an account</h1>
                 <form onSubmit={handleSignup}>
                     <input type="text" value={firstName} placeholder="First name" onChange={(e) => setFirstName(e.target.value)} />
                     <input type="text" value={lastName} placeholder="Last name" onChange={(e) => setLastName(e.target.value)} />
@@ -62,7 +62,7 @@ function Signup() {
                     {successMsg && <p className="success-msg">{successMsg}</p>}
                     {error && <p className="error-msg">{error}</p>}
                     
-                    <button type="submit">Create account</button>
+                    <button type="submit">Create your account</button>
                 </form>
             </div>
         </div>

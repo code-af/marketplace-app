@@ -6,7 +6,6 @@
     width: 100%;
     height: 85px;
     display: flex;
-    
 }
 .signup-header img{
     width: 100px;
@@ -16,7 +15,8 @@
 }
 .signup-header p {
     color: #707070;
-    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     position: absolute !important;
     top: 25px;
     right: 16px;
@@ -31,14 +31,12 @@
     flex: 1;
     overflow: hidden;
 }
-
 .signup-image img {
     border-radius: 20px;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .signup-form {
     flex: 1;
     display: flex;
@@ -48,7 +46,10 @@
     padding: 40px;
 }
 .signup-form h1{
-    font-weight: 900;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 .signup-form form {
     width: 100%;
@@ -74,6 +75,7 @@
     width: 105%;
     padding: 12px;
     border-radius: 25px;
+    border: none;
     cursor: pointer;
 }
 .success-msg {
@@ -85,7 +87,7 @@
     font-size: 14px;
 }
 .signup-form button:hover{
-    background-color: #0860e8;
+    background-color: #10299c;
 }
 .signup-footer{
     color: #707070;
