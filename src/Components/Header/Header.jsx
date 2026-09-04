@@ -38,7 +38,7 @@ function Header() {
                 <div className="header-bottom">
                     <a href="/"><img src={logo} alt="logo" /></a>
                     <div className="search-bar">
-                        <div className="category-panel">
+                        <div className="category-panel" onMouseLeave={()=>setIsOpen(false)}>
                             <span onClick={() => setIsOpen(!isOpen)}>
                                 Shop by Category ▾
                             </span>
