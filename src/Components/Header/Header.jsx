@@ -7,6 +7,7 @@ import './Header.css'
 
 function Header() {
     const [categories, setCategories] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
     const { currentUser } = useAuth()
     const navigate = useNavigate()
     useEffect(() => {
@@ -37,12 +38,21 @@ function Header() {
                 <div className="header-bottom">
                     <a href="/"><img src={logo} alt="logo" /></a>
                     <div className="search-bar">
-                        <select>
-                            <option value="" disabled selected>Shop by Categories</option>
-                            {categories.map((category, index) => (
-                                <option key={index}>{category}</option>
-                            ))}
-                        </select>
+                        <div className="category-panel">
+                            <span onClick={() => setIsOpen(!isOpen)}>
+                                Shop by Category ▾
+                            </span>
+                            {isOpen && (
+                                <div className="category-popup">
+                                    <p>All Categories</p>
+                                    {categories.map((category, index) => (
+                                        <p key={index} onClick={() => setIsOpen(false)}>
+                                            {category}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                    </div>
                         <input type="text" placeholder="🔍 Search for anything" />
                         <button>Search</button>
                     </div>
