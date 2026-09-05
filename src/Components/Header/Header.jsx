@@ -31,7 +31,7 @@ function Header() {
                     <div className="header-top-right">
                         <span>Sell</span>
                         <span>Watchlist</span>
-                        <span>My eBay</span>
+                        <span>My eBuy</span>
                     </div>
                 </div>
                 {/* Bottom row */}
