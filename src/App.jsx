@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './Components/Header/Header'
+import Footer from `./Components/Footer/Footer`
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import Signup from './Pages/Signup/Signup'
@@ -12,6 +13,7 @@ import './App.css'
 function App() {
   const location = useLocation()
   const hideHeader = ['/login', '/signup', '/profile'].includes(location.pathname)
+  const hideFooter = ['/login', '/signup'].includes(location.pathname)
   return (
     <>
       {!hideHeader && <Header />}
@@ -24,6 +26,7 @@ function App() {
           <Route path='/sell' element={<Sell />} />
           <Route path='/profile' element={<Profile />} />
       </Routes>
+      {!hideFooter && <Footer/>}
     </>    
   )
 }
