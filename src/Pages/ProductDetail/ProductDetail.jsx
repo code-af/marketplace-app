@@ -23,7 +23,9 @@ function ProductDetail(){
         }
     }, [product])
     useEffect(()=>{
-        window.scrollTo(0,0)
+        setTimeout(()=>{
+            window.scrollTo({top:0, behavior:"smooth"})
+        },300)
     },[id])
     
     if(!product) return <p>Loading...</p>
