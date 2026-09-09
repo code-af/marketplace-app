@@ -22,7 +22,10 @@ function ProductDetail(){
                 })
         }
     }, [product])
-
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[id])
+    
     if(!product) return <p>Loading...</p>
 
 return (
