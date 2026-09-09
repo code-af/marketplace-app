@@ -2,6 +2,7 @@ import ProductCard from '../../Components/ProductCard/ProductCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useSearchParams } from 'react-router-dom'
+import './Products.css'
 function Products(){
     const [products, setProducts] = useState([])
     const [searchParams] = useSearchParams()
@@ -18,6 +19,9 @@ function Products(){
     }, [category])
     return (
         <>
+            <h2 className="category-heading">
+                {category ? category : 'All Products'}
+            </h2>
         {products.map((product) => (
             <ProductCard key={product.id} product={product} />
         ))}

@@ -1,0 +1,9 @@
+.category-heading {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #111820;
+    padding-bottom: 5px;
+}
