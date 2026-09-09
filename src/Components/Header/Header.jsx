@@ -44,7 +44,9 @@ function Header() {
                             </span>
                             {isOpen && (
                                 <div className="category-popup">
-                                    <p>All Categories</p>
+                                    <p onClick={()=>{
+                                        navigate('/products')
+                                        setIsOpen(false)}}>All Categories</p>
                                     {categories.map((category, index) => (
                                         <p key={index} onClick={() => {
                                             navigate(`/products?category=${category}`)
