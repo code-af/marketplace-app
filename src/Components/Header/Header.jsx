@@ -46,7 +46,9 @@ function Header() {
                                 <div className="category-popup">
                                     <p>All Categories</p>
                                     {categories.map((category, index) => (
-                                        <p key={index} onClick={() => setIsOpen(false)}>
+                                        <p key={index} onClick={() => {
+                                            navigate(`/products?category=${category}`)
+                                            setIsOpen(false)}}>
                                             {category}
                                         </p>
                                     ))}
