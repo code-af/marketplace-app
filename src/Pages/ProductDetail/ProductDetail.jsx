@@ -1,20 +1,32 @@
 import React,{ useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
+import ProductCard from "../../Components/ProductCard/ProductCard";
 import './ProductDetail.css'
+
 function ProductDetail(){
     const [product, setProduct] = useState(null)
+    const [similarProducts, setSimilarProducts] = useState([])
     const { id } = useParams()
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products/${id}`)
             .then(response => setProduct(response.data))
             .catch(error => console.log(error))
     }, [id])
+    useEffect(() => {
+        if (product) {
+            axios.get(`https://fakestoreapi.com/products/category/${product.category}`)
+                .then(response => {
+                    const filtered = response.data.filter(p => p.id !== product.id)
+                    setSimilarProducts(filtered)
+                })
+        }
+    }, [product])
+
     if(!product) return <p>Loading...</p>
 
 return (
     <div className="product-detail">
-        
         {/* Container 1 — Image and Info */}
         <div className="detail-top">
             <div className="detail-images">
@@ -53,7 +65,15 @@ return (
                 <p>{product.description}</p>
             </div>
         </div>
-
+        {/* Container 3 — Similar Products */}
+        <div className="similar-products">
+            <h2>Explore Similar Products</h2>
+            <div className="similar-cards">
+                {similarProducts.map(product => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        </div>
     </div>
 )
 }

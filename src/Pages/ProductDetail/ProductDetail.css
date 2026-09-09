@@ -148,3 +148,19 @@
     color: #767676;
     line-height: 1.6;
 }
+.similar-products {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 40px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 30px;
+}
+.similar-products h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #111820;
+}
+.similar-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
