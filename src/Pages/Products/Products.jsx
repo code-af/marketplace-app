@@ -7,20 +7,33 @@ function Products(){
     const [products, setProducts] = useState([])
     const [searchParams] = useSearchParams()
     const category = searchParams.get('category')
+    const searchQuery = searchParams.get('search')
 
     useEffect(() => {
-        const url = category
-            ? `https://fakestoreapi.com/products/category/${category}`
-            : `https://fakestoreapi.com/products`
-
-        axios.get(url)
-            .then(response => setProducts(response.data))
-            .catch(error => console.log(error))
-    }, [category])
+        if (searchQuery) {  // if statement checking matching search query and product title
+            axios.get('https://fakestoreapi.com/products')
+                .then(response => {
+                    const filtered = response.data.filter(p =>
+                        p.title.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    setProducts(filtered)
+                })
+        }
+        else{
+            const url = category
+                ? `https://fakestoreapi.com/products/category/${category}`
+                : `https://fakestoreapi.com/products`
+    
+            axios.get(url)
+                .then(response => setProducts(response.data))
+                .catch(error => console.log(error))
+        }
+    }, [category,searchQuery])
     return (
         <>
             <h2 className="category-heading">
-                {category ? category : 'All Products'}
+                { searchQuery ? `Results for "${searchQuery}"`
+                : category ? category : 'All Products'}
             </h2>
         {products.map((product) => (
             <ProductCard key={product.id} product={product} />
