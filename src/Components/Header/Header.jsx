@@ -7,9 +7,16 @@ import './Header.css'
 
 function Header() {
     const [categories, setCategories] = useState([])
+    const [searchQuery, setSearchQuery] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const { currentUser } = useAuth()
     const navigate = useNavigate()
+    const handleSearch = () => {
+        if (!searchQuery.trim()) return
+        navigate(`/products?search=${searchQuery}`)
+        setSearchQuery('')
+    }
+
     useEffect(() => {
     axios.get('https://fakestoreapi.com/products/categories')
         .then(response => {
@@ -57,8 +64,10 @@ function Header() {
                                 </div>
                             )}
                     </div>
-                        <input type="text" placeholder="🔍 Search for anything" />
-                        <button>Search</button>
+                        <input type="text" placeholder="🔍 Search for anything" 
+                        value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={(e)=> e.key=== 'Enter' && handleSearch()}/>
+                        <button onClick={handleSearch}>Search</button>
                     </div>
                 </div>
                 <hr className="header-divider" />
