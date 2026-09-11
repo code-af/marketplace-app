@@ -36,7 +36,15 @@ function Profile(){
             })
         }
     }, [currentUser])
-
+    const handleLogout = () => {
+        signOut(auth).then(() => navigate('/login'))
+    }
+    if(!currentUser) {
+        navigate('/login')
+        return null
+    }
+    if(!userData) return <p>Loading...</p>
+    
     return <h1>Profile</h1>
 }
 export default Profile
