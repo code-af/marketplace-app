@@ -11,8 +11,32 @@ function Profile(){
     const [userData, setUserData] = useState(null)
     const { currentUser } = useAuth()
     const navigate = useNavigate()
+    useEffect(() => {  // Fetching user data from firestore db
+        if(currentUser) {
+            getDoc(doc(db, 'users', currentUser.uid))
+                .then(docSnap => {
+                    if(docSnap.exists()) {
+                        setUserData(docSnap.data())
+                    }
+                })
+        }
+    }, [currentUser])
+    useEffect(() => {  // Fetching user listings from firestore db
+        if(currentUser) {
+            const q = query(
+                collection(db, 'listings'),
+                where('uid', '==', currentUser.uid)
+            )
+            getDocs(q).then(snapshot => {
+                const listings = []
+                snapshot.forEach(doc => {
+                    listings.push({ id: doc.id, ...doc.data() })
+                })
+                setUserListings(listings)
+            })
+        }
+    }, [currentUser])
 
-    
     return <h1>Profile</h1>
 }
 export default Profile
