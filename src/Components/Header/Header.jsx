@@ -38,7 +38,7 @@ function Header() {
                     <div className="header-top-right">
                         <span>Sell</span>
                         <span>Watchlist</span>
-                        <span>My eBuy</span>
+                        <span onClick={()=>navigate('/profile')}>My eBuy</span>
                     </div>
                 </div>
                 {/* Bottom row */}

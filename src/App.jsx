@@ -12,7 +12,7 @@ import './App.css'
 
 function App() {
   const location = useLocation()
-  const hideHeader = ['/login', '/signup', '/profile'].includes(location.pathname)
+  const hideHeader = ['/login', '/signup'].includes(location.pathname)
   const hideFooter = ['/login', '/signup'].includes(location.pathname)
   return (
     <>
