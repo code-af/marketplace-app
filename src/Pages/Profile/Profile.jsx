@@ -65,6 +65,32 @@ function Profile(){
                     onClick={() => setActiveTab('about')}>
                     About</span>
             </div>
+            <div className="parent-content">{/* Parent content section */}
+                {activeTab === 'listings' ? (
+                    <div className="user-listings">
+                        <h2>My Listings</h2>
+                        {userListings.length === 0
+                            ? <p>No listings yet</p>
+                            : userListings.map(listing => (
+                                <div key={listing.id} className="listing-card">
+                                    <img src={listing.imageUrl} alt={listing.title} />
+                                    <div>
+                                        <h3>{listing.title}</h3>
+                                        <p>${listing.price}</p>
+                                        <p>{listing.category}</p>
+                                    </div>
+                                    <button onClick={() => {
+                                        deleteDoc(doc(db, 'listings', listing.id))
+                                            .then(() => {
+                                                setUserListings(userListings.filter(l => l.id !== listing.id))
+                                            })
+                                    }}>Delete</button>
+                                </div>
+                            ))
+                        }
+                    </div>
+                )
+            </div>
     </div>
     )
 }
