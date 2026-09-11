@@ -44,7 +44,20 @@ function Profile(){
         return null
     }
     if(!userData) return <p>Loading...</p>
-    
-    return <h1>Profile</h1>
+
+    return (
+    <div className="profile-page">
+        <div className="user-card"> {/* user card section for showing user details */}
+            <div className="avatar">
+                {userData.firstName?.charAt(0).toUpperCase()}
+            </div>
+            <div className="user-info">
+                <h2>{userData.firstName} {userData.lastName}</h2>
+                <p>Member since {userData.createdAt}</p>
+            </div>
+            <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        </div>
+    </div>
+    )
 }
 export default Profile
