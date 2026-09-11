@@ -46,7 +46,7 @@ function Profile(){
     if(!userData) return <p>Loading...</p>
 
     return (
-    <div className="profile-page">
+    <div className="profile-page"> {/* Parent div container for profile page */}
         <div className="user-card"> {/* user card section for showing user details */}
             <div className="avatar">
                 {userData.firstName?.charAt(0).toUpperCase()}
@@ -57,6 +57,14 @@ function Profile(){
             </div>
             <button className="logout-btn" onClick={handleLogout}>Logout</button>
         </div>
+            <div className="control-bar"> {/* Tab section to switch between user listing or user about */}
+                <span className={activeTab === 'listings' ? 'active-tab' : ''}
+                    onClick={() => setActiveTab('listings')}>
+                    My Listings</span>
+                <span className={activeTab === 'about' ? 'active-tab' : ''}
+                    onClick={() => setActiveTab('about')}>
+                    About</span>
+            </div>
     </div>
     )
 }
