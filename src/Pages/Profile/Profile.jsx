@@ -39,10 +39,11 @@ function Profile(){
     const handleLogout = () => {
         signOut(auth).then(() => navigate('/login'))
     }
-    if(!currentUser) {
-        navigate('/login')
-        return null
-    }
+    useEffect(()=>{
+        if(!currentUser) {
+            navigate('/login')
+        }
+    })
     if(!userData) return <p>Loading...</p>
 
     return (
