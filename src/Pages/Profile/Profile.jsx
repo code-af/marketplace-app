@@ -89,7 +89,14 @@ function Profile(){
                             ))
                         }
                     </div>
-                )
+                ) : (
+                    <div className="about-section">
+                        <h2>About</h2>
+                        <p><strong>Name:</strong> {userData.firstName} {userData.lastName}</p>
+                        <p><strong>Email:</strong> {userData.email}</p>
+                        <p><strong>Member since:</strong> {userData.createdAt}</p>
+                    </div>
+                )}
             </div>
     </div>
     )
