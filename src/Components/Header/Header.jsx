@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import {getDoc, doc} from 'firebase/firestore'
+import { db } from '../../firebase/config'
 import { useAuth } from '../../context/Authcontext'
 import  logo from '../../assets/ebuy-icon.png'
 import './Header.css'
@@ -9,6 +11,7 @@ function Header() {
     const [categories, setCategories] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
     const [isOpen, setIsOpen] = useState(false)
+    const [userData, setUserData] = useState(null)
     const { currentUser } = useAuth()
     const navigate = useNavigate()
     const handleSearch = () => {
@@ -26,13 +29,23 @@ function Header() {
             console.log(error)
         })
     }, [])
+    useEffect(()=>{
+        if (currentUser) {
+            getDoc(doc(db, 'users', currentUser.uid))
+                .then(docSnap => {
+                    if (docSnap.exists()) {
+                        setUserData(docSnap.data())
+                    }
+                })
+        }
+    },[currentUser])
     return(
         <>
             <header>
                 {/* Top row */}
                 <div className="header-top">
                     <div className="header-greeting">
-                        {currentUser ? <span>Hi, {currentUser.email}!</span>
+                        {userData ? <span>Hi, {userData.firstName} {userData.lastName} !</span>
                             : <span>Hi! <a href="/login">Sign in</a> or <a href="/signup">register</a></span> }
                     </div>
                     <div className="header-top-right">
