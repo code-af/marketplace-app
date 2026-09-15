@@ -8,7 +8,7 @@
 .header-greeting {
     margin-left: 40px;
     margin-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 13px;
 }
 .header-greeting a{
@@ -23,7 +23,7 @@
 .header-top-right span {
     cursor: pointer;
     font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .header-top-right span:hover {
     text-decoration: underline;
@@ -51,7 +51,7 @@
     cursor: pointer;
 }
 .category-panel span{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 13px;
     color: #707070;
 }
@@ -69,7 +69,7 @@
 }
 .category-popup p {
     text-transform: capitalize;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 10px 20px;
     margin: 0;
     font-size: 15px;

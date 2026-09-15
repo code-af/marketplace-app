@@ -76,3 +76,71 @@
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.profile-content {
+    padding: 20px 0;
+}
+.user-listings h2 {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
+    color: #111820;
+}
+.listing-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.listing-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 5px;
+}
+.listing-card div {
+    flex: 1;
+}
+.listing-card h3 {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #111820;
+    margin-bottom: 5px;
+}
+.listing-card p {
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #767676;
+}
+.listing-card button {
+    padding: 8px 15px;
+    background: white;
+    color: red;
+    border: 2px solid red;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.listing-card button:hover {
+    background: red;
+    color: white;
+}
+
+.about-section h2 {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
+    color: #111820;
+}
+.about-section p {
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #111820;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}

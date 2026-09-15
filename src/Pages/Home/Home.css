@@ -9,7 +9,7 @@
 .banner-heading {
     text-align: center;
     font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 15px 0;
     color: #111820;
 }
@@ -48,7 +48,7 @@
     object-fit: cover;
 }
 .category-card h4 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 5px;
     text-transform: capitalize;
     color: #111820;
