@@ -19,7 +19,20 @@ function Sell(){
     const navigate = useNavigate()
 
     useEffect(() => {  // redirect if current user isn't logged in
-        if(!currentUser) navigate('/login')
+        if (!currentUser) navigate('/login')
+    }, [currentUser])
+    useEffect(() => {
+        axios.get('https://fakestoreapi.com/products/categories')
+            .then(response => setCategories(response.data))
+    }, [])
+    useEffect(() => {
+        if (currentUser) {
+            import { doc, getDoc } from 'firebase/firestore'
+            getDoc(doc(db, 'users', currentUser.uid))
+                .then(docSnap => {
+                    if (docSnap.exists()) setUserData(docSnap.data())
+                })
+        }
     }, [currentUser])
     
     return <h1>Sell</h1>
