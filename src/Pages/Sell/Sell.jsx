@@ -34,7 +34,33 @@ function Sell(){
                 })
         }
     }, [currentUser])
-    
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (!title || !price || !category || !description || !imageUrl) {
+            setError('Please fill in all fields')
+            return
+        }
+        addDoc(collection(db, 'listings'), {
+            title,
+            price: Number(price),
+            category,
+            description,
+            imageUrl,
+            sellerName: `${userData.firstName} ${userData.lastName}`,
+            uid: currentUser.uid,
+            createdAt: new Date().toDateString()
+        })
+            .then(() => {
+                setSuccessMsg('Listing posted successfully!')
+                setError('')
+                setTimeout(() => navigate('/'), 2000)
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
     return <h1>Sell</h1>
 }
 export default Sell
