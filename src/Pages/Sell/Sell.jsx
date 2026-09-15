@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, doc, getDoc } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import { useAuth } from '../../context/Authcontext'
 import { useNavigate } from 'react-router-dom'
@@ -27,7 +27,6 @@ function Sell(){
     }, [])
     useEffect(() => {
         if (currentUser) {
-            import { doc, getDoc } from 'firebase/firestore'
             getDoc(doc(db, 'users', currentUser.uid))
                 .then(docSnap => {
                     if (docSnap.exists()) setUserData(docSnap.data())
@@ -60,7 +59,45 @@ function Sell(){
                 setError(error.message)
             })
     }
+    return (
+        <div className="sell-page">
+            <h1>Post a Listing</h1>
+            <form className="sell-form" onSubmit={handleSubmit}>
 
-    return <h1>Sell</h1>
+                <label>Title</label>
+                <input type="text" placeholder="What are you selling?" value={title}
+                    onChange={(e) => setTitle(e.target.value)}/>
+
+                <label>Price</label>
+                <input type="number" placeholder="Enter price" value={price}
+                    onChange={(e) => setPrice(e.target.value)}/>
+
+                <label>Category</label>
+                <select value={category}
+                    onChange={(e) => setCategory(e.target.value)}>
+                    <option value="">Select a category</option>
+                    {categories.map((cat, index) => (
+                        <option key={index} value={cat}>{cat}</option>
+                    ))}
+                </select>
+
+                <label>Description</label>
+                <textarea placeholder="Describe your item..." value={description}
+                    onChange={(e) => setDescription(e.target.value)} rows={5}/>
+
+                <label>Image URL</label>
+                <input type="text" placeholder="Paste image URL here" value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}/>
+                {imageUrl && ( 
+                    <div className="image-preview">
+                        <img src={imageUrl} alt="preview" />
+                    </div>
+                )}
+                {successMsg && <p className="success-msg">{successMsg}</p>}
+                {error && <p className="error-msg">{error}</p>}
+                <button type="submit">Post Listing</button>
+            </form>
+        </div>
+    )
 }
 export default Sell

@@ -49,7 +49,7 @@ function Header() {
                             : <span>Hi! <a href="/login">Sign in</a> or <a href="/signup">register</a></span> }
                     </div>
                     <div className="header-top-right">
-                        <span>Sell</span>
+                        <span onClick={()=>navigate('/sell')}>Sell</span>
                         <span>Watchlist</span>
                         <span onClick={()=>navigate('/profile')}>My eBuy</span>
                     </div>
